@@ -90,3 +90,22 @@ endif
  
 map <Leader>rm :echo delete(@%) <Bar> bwipeout!<CR>
  
+" Gtd params and map
+let g:gtd#dir = '~/notes'
+let g:gtd#debug = 1
+let g:gtd#cache = 1
+let g:gtd#default_action = 'inbox'
+let g:gtd#default_context = 'home'
+let g:gtd#review = [
+              \ '(!inbox + !scheduled-'.strftime("%Y%m%d").') @work',
+              \ '!waiting @work',
+              \ '!someday @work'
+              \ ]
+let g:gtd#folding = 1
+nmap <Leader>tf <Plug>GtdAttachedFiles
+nmap <Leader>te <Plug>GtdExplore
+nmap <Leader>tn <Plug>GtdNew
+vmap <Leader>tn <Plug>GtdNew
+nnoremap <Leader>tw :Gtd @work (!inbox + !scheduled-<C-R>=strftime("%Y%m%d")<CR>)<CR>
+nnoremap <Leader>th :Gtd @home (!inbox + !scheduled-<C-R>=strftime("%Y%m%d")<CR>)<CR>
+
