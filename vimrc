@@ -90,6 +90,12 @@ endif
  
 map <Leader>rm :echo delete(@%) <Bar> bwipeout!<CR>
  
+function! s:Bufgrep(param)
+    call setloclist(winnr(), [])
+    bufdo silent lvimgrepadd /a:param/gj %
+endfun
+command! -nargs=1 Bufgrep call s:Bufgrep(<q-args>)
+
 " Gtd params and map
 let g:gtd#dir = '~/notes'
 let g:gtd#debug = 1
