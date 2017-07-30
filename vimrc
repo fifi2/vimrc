@@ -1,0 +1,92 @@
+let mapleader = ","
+set history=100
+set report=0
+set hidden
+set mouse=
+set backspace=indent,eol,start
+set guioptions=
+set number relativenumber
+set fileformats=unix,dos
+if has("multi_byte")
+    set encoding=utf-8
+endif
+ 
+if has("syntax")
+    syntax on
+    colorscheme desert
+endif
+ 
+filetype plugin on
+ 
+set tabstop=4 softtabstop=4 shiftwidth=4
+set noexpandtab
+set smarttab
+set autoindent
+if has("smartindent")
+    set smartindent
+endif
+ 
+set ignorecase
+set smartcase
+if has("extra_search")
+    set incsearch
+    set hlsearch
+    nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
+endif
+ 
+set laststatus=2
+if has("statusline")
+    set statusline=%n
+    set statusline+=\ %f
+    set statusline+=%m
+    set statusline+=%r
+    set statusline+=\ [%{strlen(&filetype)?&filetype:'aucun'},
+    \%{strlen(&fileencoding)?&fileencoding:&enc},
+    \%{&fileformat}]
+    set statusline+=%=%l,%c%V
+    set statusline+=\ %P
+endif
+ 
+set wildmode=longest,list,full
+if has("wildmenu")
+    set wildmenu
+endif
+ 
+if has("windows") && has("vertsplit") && has("quickfix") && has("listcmds") && has("diff")
+    function! DiffOrig()
+        only
+        vertical new
+        set buftype=nofile
+        set bufhidden=delete
+        r #
+        0d
+        windo diffthis
+    endfunction
+ 
+    if !exists(":DiffOrig")
+        command DiffOrig call DiffOrig()
+    endif
+endif
+ 
+function! NettoyerFichier()
+    let l:save = winsaveview()
+    let cursor_position = getpos(".")
+    execute "%s/$//e"
+    execute "%s/\\s\\+$//e"
+    call setpos('.', cursor_position)
+    call winrestview(l:save)
+endfunction
+ 
+if !exists(":NettoyerFichier")
+    command NettoyerFichier call NettoyerFichier()
+endif
+ 
+nmap <F2> :wall<Bar>:mksession! $HOME/session_
+nmap <F3> :source $HOME/session_
+ 
+if has("modify_fname")
+    map <Leader>cd :cd <C-R>=expand("%:p:h")<CR><CR>
+endif
+ 
+map <Leader>rm :echo delete(@%) <Bar> bwipeout!<CR>
+ 
