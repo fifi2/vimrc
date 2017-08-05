@@ -33,6 +33,7 @@ if has("extra_search")
     set hlsearch
     nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
 endif
+set nowrapscan
 
 set laststatus=2
 if has("statusline")
