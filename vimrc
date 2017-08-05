@@ -105,6 +105,12 @@ if has("win32")
     set tags+=~\workspace\tags
 endif
 
+" CtrlP
+let g:ctrlp_max_depth = 500
+let g:ctrlp_max_files = 0
+let g:ctrlp_working_path_mode = 'w'
+let g:ctrlp_clear_cache_on_exit = 0
+
 " Gtd params and map
 let g:gtd#dir = '~/notes'
 let g:gtd#debug = 1

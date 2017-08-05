@@ -4,3 +4,6 @@
 [submodule "pack/plugins/start/gtd.vim"]
 	path = pack/plugins/start/gtd.vim
 	url = https://github.com/phb1/gtd.vim.git
+[submodule "pack/plugins/start/ctrlp.vim"]
+	path = pack/plugins/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
