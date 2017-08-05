@@ -96,12 +96,25 @@ function! s:Bufgrep(param)
 endfun
 command! -nargs=1 Bufgrep call s:Bufgrep(<q-args>)
 
+if has("win32")
+    set guifont=Lucida_Console:h9:cANSI:qDRAFT
+
+    set grepprg=C:\cygwin64\bin\ag.exe\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+
+    set tags+=~\workspace\tags
+endif
+
 " Gtd params and map
 let g:gtd#dir = '~/notes'
 let g:gtd#debug = 1
 let g:gtd#cache = 1
 let g:gtd#default_action = 'inbox'
-let g:gtd#default_context = 'home'
+if has("win32")
+	let g:gtd#default_context = 'work'
+else
+	let g:gtd#default_context = 'home'
+endif
 let g:gtd#review = [
 	\ '(!inbox + !scheduled-'.strftime("%Y%m%d").') @work',
 	\ '!waiting @work',
