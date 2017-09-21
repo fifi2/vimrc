@@ -21,7 +21,7 @@ endif
 
 filetype plugin on
 
-set tabstop=4 softtabstop=4 shiftwidth=4
+set tabstop=4 softtabstop=-1 shiftwidth=0
 set noexpandtab
 set smarttab
 set autoindent
