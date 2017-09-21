@@ -109,6 +109,10 @@ if has("win32")
     set tags+=~\workspace\tags
 endif
 
+" Netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+
 " CtrlP
 let g:ctrlp_max_depth = 500
 let g:ctrlp_max_files = 0
