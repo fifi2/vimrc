@@ -116,8 +116,6 @@ let g:ctrlp_working_path_mode = 'w'
 let g:ctrlp_clear_cache_on_exit = 0
 
 " Gtd params and map
-let g:gtd#dir = '~/notes'
-let g:gtd#debug = 1
 let g:gtd#cache = 1
 let g:gtd#default_action = 'inbox'
 if has("win32")
@@ -126,15 +124,14 @@ else
 	let g:gtd#default_context = 'home'
 endif
 let g:gtd#review = [
-	\ '(!inbox + !scheduled-'.strftime("%Y%m%d").') @work',
-	\ '!waiting @work',
-	\ '!someday @work'
+	\ '!inbox',
+	\ '!waiting',
+	\ '!someday'
 	\ ]
 let g:gtd#folding = 1
-nmap <Leader>tf <Plug>GtdAttachedFiles
-nmap <Leader>te <Plug>GtdExplore
-nmap <Leader>tn <Plug>GtdNew
-vmap <Leader>tn <Plug>GtdNew
-nnoremap <Leader>tw :Gtd @work (!inbox + !scheduled-<C-R>=strftime("%Y%m%d")<CR>)<CR>
-nnoremap <Leader>th :Gtd @home (!inbox + !scheduled-<C-R>=strftime("%Y%m%d")<CR>)<CR>
+nmap <Leader>gd <Plug>GtdDisplay
+nmap <Leader>gf <Plug>GtdFiles
+nmap <Leader>ge <Plug>GtdExplore
+nmap <Leader>gn <Plug>GtdNew
+vmap <Leader>gn <Plug>GtdNew
 
