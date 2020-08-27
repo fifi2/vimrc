@@ -107,6 +107,11 @@ let g:ctrlp_max_depth = 500
 let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'w'
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = '\(node_modules\|\.git\)'
+
+" Fugitive
+cabbrev git Git
 
 " Gtd params and map
 let g:gtd#cache = 1
