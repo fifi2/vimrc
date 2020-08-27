@@ -44,6 +44,7 @@ if has("statusline")
     set statusline+=\ [%{strlen(&filetype)?&filetype:'aucun'},
     \%{strlen(&fileencoding)?&fileencoding:&enc},
     \%{&fileformat}]
+    set statusline+=\ %{FugitiveStatusline()}
     set statusline+=%=%l,%c%V
     set statusline+=\ %P
 endif
