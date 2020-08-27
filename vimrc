@@ -103,6 +103,9 @@ nmap <Up> :cprevious<CR>
 nmap <Left> :cfirst<CR>
 nmap <Right> :clast<CR>
 
+" Send visual selection to system clipboard from Terminal
+vmap <C-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>
+
 " Netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
