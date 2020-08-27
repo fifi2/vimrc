@@ -116,11 +116,8 @@ cabbrev git Git
 " Gtd params and map
 let g:gtd#cache = 1
 let g:gtd#default_action = 'inbox'
-if has("win32")
-	let g:gtd#default_context = 'work'
-else
-	let g:gtd#default_context = 'home'
-endif
+let g:gtd#default_context = 'work'
+let g:gtd#dir = '~/notes'
 let g:gtd#review = [
 	\ '!inbox',
 	\ '!waiting',
