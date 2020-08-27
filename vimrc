@@ -98,15 +98,6 @@ function! s:Bufgrep(param)
 endfun
 command! -nargs=1 Bufgrep call s:Bufgrep(<q-args>)
 
-if has("win32")
-    set guifont=Lucida_Console:h9:cANSI:qDRAFT
-
-    set grepprg=C:\cygwin64\bin\ag.exe\ --vimgrep
-    set grepformat=%f:%l:%c:%m
-
-    set tags+=~\workspace\tags
-endif
-
 " Netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
