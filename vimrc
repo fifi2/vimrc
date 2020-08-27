@@ -98,6 +98,11 @@ function! s:Bufgrep(param)
 endfun
 command! -nargs=1 Bufgrep call s:Bufgrep(<q-args>)
 
+nmap <Down> :cnext<CR>
+nmap <Up> :cprevious<CR>
+nmap <Left> :cfirst<CR>
+nmap <Right> :clast<CR>
+
 " Netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
