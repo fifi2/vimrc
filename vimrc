@@ -128,6 +128,7 @@ let g:gtd#default_context = 'work'
 let g:gtd#dir = '~/notes'
 let g:gtd#review = [
 	\ '!inbox',
+	\ '!todo',
 	\ '!waiting',
 	\ '!someday'
 	\ ]
