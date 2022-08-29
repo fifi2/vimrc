@@ -13,7 +13,7 @@ endif
 
 if has("syntax")
     syntax on
-    colorscheme pablo
+    colorscheme default
 endif
 
 filetype plugin on
