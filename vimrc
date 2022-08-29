@@ -18,8 +18,8 @@ endif
 
 filetype plugin on
 
-set tabstop=4 softtabstop=-1 shiftwidth=0
-set noexpandtab
+set tabstop=2 softtabstop=-1 shiftwidth=0
+set expandtab
 set smarttab
 set autoindent
 if has("smartindent")
